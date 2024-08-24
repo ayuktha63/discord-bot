@@ -1,4 +1,3 @@
-require('dotenv').config();
 const { Client, GatewayIntentBits } = require('discord.js');
 const client = new Client({
     intents: [
@@ -12,10 +11,9 @@ client.once('ready', () => {
 });
 
 client.on('guildMemberAdd', member => {
-    // Send a message when a new user joins the server
     const channel = member.guild.channels.cache.find(ch => ch.name === 'general');
     if (!channel) return;
-    channel.send(`Ahh myr neyum vanna powli ${member}!`);
+    channel.send(`Welcome to the server, ${member}!`);
 });
 
 client.login(process.env.BOT_TOKEN);
